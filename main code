@@ -1,0 +1,143 @@
+import sys
+import hashlib
+def retry():
+    print("invalid login, Either your username or password is incorrect.")
+    print("please try again")
+    secondu  = input("retry username: ")
+    secondp = input("retry password: ")
+    if secondu == user and secondp == passw:
+        print("Valid login")
+    else:
+        print("invalid login")
+        print("this is your last login attempt")
+        secondutwo  = input("retry username: ")
+        secondptwo = input("retry password: ")
+        if secondutwo == user and secondptwo == passw:
+          print("Valid login")
+        else:
+         exit()
+def modifyartist():
+    artistmod = input("enter your new favourite artist: ")
+    f = open('artists.txt','w')
+    f.write(artistmod)
+    f.close()
+def modifygenre():
+    genremod = input("enter your new favourite genre: ")
+    f = open('genres.txt','w')
+    f.write(genremod)
+    f.close
+
+class library():
+   def __init__ (self, artist, tracklen, songtitle):
+    self.artist = artist
+    self.tracklen = tracklen
+    self.songtitle = songtitle
+   def songlib_self(self):
+    print(self.artist, self.tracklen, self.songtitle)
+
+
+start = input("press enter to create account: ")
+if start == "":
+  user = input("set username: ")
+  f = open("usernames.txt", "w")
+  f.write(user)
+  f.close()
+  passw = input("set password (Minimum 8 characters): ")
+if len(passw) < 8:
+  print('password MUST be longer than 8 characters')
+  exit()
+  f = open('passwords.txt','w')
+  f.write(passw)
+  f.close()
+
+filename = '/Users/User/Documents/python/passwords.txt'
+hasher = hashlib.md5()
+with open (filename,"rb") as open_file:
+     content = open_file.read()
+     hasher.update(content)
+     print(hasher.hexdigest())
+
+print("Now we'd love to get to know you more! ")
+favart = input("who's your favourite artist? ")
+f = open("artists.txt",'w')
+f.write(favart)
+f.close()
+favgen = input("whats your favourite genre? ")
+f = open('genres.txt','w')
+f.write(favgen)
+f.close()
+birth = input("enter your birthyear: ")
+print("thanks for letting us know this information! ")
+
+print("now please login to your account: ")
+userlogon = input("enter username: ")
+passwlogon = input("enter password: ")
+
+
+if userlogon == user and passwlogon == passw:
+        print("Valid login")
+else:
+    retry()
+
+editfavart = input("options: press 1 to modify favourite artist or press enter to keep current preference: ")
+
+if editfavart == '1':
+   modifyartist()
+elif editfavart == "":
+    print("Nice, you cant go wrong with",favart,"!")
+else:
+    print("please return and choose an option")
+    exit()
+editgenre = input("press 1 to modify your favourite genre or press enter to keep current preference: ")
+if editgenre == '1':
+    modifygenre()
+elif editgenre == '':
+       print("you've got a good taste",user)
+else:
+    print("please return and choose an option")
+    exit()
+
+s1 = library('pop smoke ,',2.53,', dior')
+s2 = library('country dons,',7.53,', fire in the booth')
+s3 = library('Britney spears,',3.31,', toxic')
+s4 = library('giveon, ',5.04,', like i want you')
+s5 = library('stormzy, ',3.42,', Own it')
+s6 = library('steve lacey, ',6.09 ,', RYD/DARK RED')
+s7 = library('dave, ',3.33,', starlight')
+s8 = library('loski, ',4.54, ', tag time freestyle')
+s9 = library('brent faiyaz, ',2.39,', Trust')
+s10 = library('eminem, ',4.58,', without me')
+
+print("if you'd like to view your current library follow upcoming instructions")
+
+choice = input('press 5 to display songs in song library else press any other key')
+if choice == '5':
+ print('/')
+ s1.songlib_self()
+ print('/')
+ s2.songlib_self()
+ print('/')
+ s3.songlib_self()
+ print('/')
+ s4.songlib_self()
+ print('/')
+ s5.songlib_self()
+ print('/')
+ s6.songlib_self()
+ print('/')
+ s7.songlib_self()
+ print('/')
+ s8.songlib_self()
+ print('/')
+ s9.songlib_self()
+ print('/')
+ s10.songlib_self()
+
+
+print('now its time for you to make your own playlist!')
+
+print("available songs: 'drake - massive' / 'miley cyrus - wrecking ball' / 'chief kief - faneto' / 'Tekno - mufasa'/ 'michael jackson - thriller' / 'future - mask off'")
+
+
+
+
